@@ -6,7 +6,7 @@ export const AppContext = React.createContext(null);
 
 // Step 2: Create a ContextWrapper component that has to be the parent of every consumer.
 
-export const ContextWrapper = (props) => {
+function ContextWrapper(props) {
   const { attributes } = props;
   const [motifQuery, setMotifQuery] = useState();
   const [neuronColors, setNeuronColors] = useState(
@@ -45,4 +45,5 @@ export const ContextWrapper = (props) => {
       {props.children}
     </AppContext.Provider>
   );
-};
+}
+export default ContextWrapper;

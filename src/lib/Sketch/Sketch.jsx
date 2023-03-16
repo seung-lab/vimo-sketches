@@ -1,5 +1,5 @@
 import React from "react";
-import { ContextWrapper } from "./contexts/GlobalContext";
+import  ContextWrapper  from "./contexts/GlobalContext";
 import MotifPanel from "./components/MotifPanel";
 
 function Sketch(props) {
