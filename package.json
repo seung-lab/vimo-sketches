@@ -20,11 +20,13 @@
     "react-awesome-query-builder": "^5.1.2",
     "react-dom": "^17.0.0",
     "react-scripts": "5.0.1",
+    "vite": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+    "vite": "vite build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
