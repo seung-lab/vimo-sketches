@@ -109,6 +109,28 @@ function SketchPanel(props) {
     fileInput.click();
   };
 
+  const importMotifFromURLEncodedJson = () => {
+    console.log("importing motif from URL encoded JSON");
+    clearSketch();
+    // decode from sketch parameter in url
+    let urlParams = new URLSearchParams(window.location.search);
+    // check if sketch paramter is in url
+    if (!urlParams.has("sketch")) {
+      return;
+    }
+    let encodedJson = urlParams.get("sketch");
+    let decodedJson = decodeURIComponent(encodedJson);
+    // try to parse json
+    try {
+      let data = JSON.parse(decodedJson);
+      let newData = getPositionTransformedData(data);
+      setImportData(newData);
+      setNodeImportUpdate(true);
+    } catch (e) {
+      console.log("Error parsing motifJson in URL");
+    }
+  };
+
   const exportMotif = () => {
     console.log("exporting motif");
     console.log(nodes);
@@ -1126,6 +1148,11 @@ function SketchPanel(props) {
     );
   }, [nodes, showInfo, edges]);
 
+  useEffect(() => {
+    importMotifFromURLEncodedJson();
+  }, []);
+
+
   return (
     <div className="sketch-panel-style">
       <Grid container className="canvas-wrapper" spacing={0}>
@@ -1322,6 +1349,15 @@ function SketchPanel(props) {
                 value="edit"
                 color="default"
                 onClick={() => importMotif()}
+              >
+                <FontAwesomeIcon size={"sm"} icon={faFileImport} />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Import Motif from URL" placement="left">
+              <IconButton
+                value="edit"
+                color="default"
+                onClick={() => importMotifFromURLEncodedJson()}
               >
                 <FontAwesomeIcon size={"sm"} icon={faFileImport} />
               </IconButton>
