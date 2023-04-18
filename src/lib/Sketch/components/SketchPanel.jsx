@@ -1191,7 +1191,7 @@ function SketchPanel(props) {
                 <FontAwesomeIcon size={"sm"} icon={faHand} />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Node Info" placement="right">
+            {/* <Tooltip title="Node Info" placement="right">
               <IconButton
                 value="node"
                 color={showInfo ? "primary" : "default"}
@@ -1201,7 +1201,7 @@ function SketchPanel(props) {
               >
                 <InfoIcon fontSize="small" />
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
           </Grid>
         </Grid>
         <Grid item xs={9.2} style={{ height: "inherit" }}>

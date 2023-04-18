@@ -1,34 +1,42 @@
-import { resolve } from 'path'
-import { defineConfig } from 'vite'
+import { resolve } from "path";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   resolve: {
     alias: {
-      'react': 'https://esm.sh/react@17',
-      'react-dom': 'https://esm.sh/react-dom@17',
-    }
+      "react": "https://esm.sh/react@17",
+      "react-dom": "https://esm.sh/react-dom@17",
+    },
   },
-  define: { 'process.env.NODE_ENV': '"production"' },
-    esbuild: {
-        loader: 'jsx',
+  define: { "process.env.NODE_ENV": '"production"' },
+  esbuild: {
+    loader: "jsx",
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        ".js": "jsx",
       },
-      optimizeDeps: {
-        esbuildOptions: {
-          loader: {
-            '.js': 'jsx',
-          },
-        },
-      },
-    plugins: [ react(),],
+    },
+  },
+  plugins: [react()],
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, 'src/lib/index.js'),
-      name: 'Vimo',
+      entry: resolve(__dirname, "src/lib/index.js"),
+      name: "Vimo",
       // the proper extensions will be added
-      fileName: 'vimo',
+      fileName: "vimo",
     },
-
+    rollupOptions: {
+      output: {
+        globals: {
+          "https://esm.sh/react@17/jsx-runtime": "jsxRuntime",
+          "https://esm.sh/react@17": "React",
+          "https://esm.sh/react-dom@17": "ReactDOM",
+        },
+      },
+    },
   },
-})
+});
