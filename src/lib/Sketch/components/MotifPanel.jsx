@@ -17,7 +17,8 @@ import { Color } from "../utils/rendering";
 
 function MotifPanel(props) {
   const { processRequest, attributes } = props;
-  const [number, setNumber] = useState(1);
+  // const [number, setNumber] = useState(1);
+  const [minSynapseCount, setMinSynapseCount] = useState(0);
   const [enableAbsMotifCountInfo, setEnableAbsMotifCountInfo] = useState(false);
   const [countButtonColor, setCountButtonColor] = useState("neutral");
   const [cypherLoading, setCypherLoading] = useState(false);
@@ -35,7 +36,7 @@ function MotifPanel(props) {
     context.setErrorMessage(null);
     setCypherLoading(true);
     try {
-      await processRequest(context.motifQuery, number);
+      await processRequest(context.motifQuery, minSynapseCount);
     } catch (e) {
       console.log(e);
       context.setErrorMessage(e.message);
@@ -132,6 +133,22 @@ function MotifPanel(props) {
                 onChange={(event) => setNumber(_.toNumber(event.target.value))}
               />
             </FormControl> */}
+
+            <FormControl sx={{ m: 1, maxWidth: 200 }}>
+              <TextField
+                id="outlined-number"
+                label="Minimum Synapse Count"
+                type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                size="small"
+                margin="normal"
+                style={{ marginTop: 0, marginLeft: "8px" }}
+                defaultValue={0}
+                onChange={(event) => setMinSynapseCount(_.toNumber(event.target.value))}
+              />
+            </FormControl> 
 
             <FormControl sx={{ m: 1, minWidth: 100 }}>
               <Button
