@@ -98,7 +98,7 @@ function MotifPanel(props) {
     <div id={motifPanelId}>
       <div className="form">
         <div className="handle">
-          <ThemeProvider theme={Color.theme}>
+          {/* <ThemeProvider theme={Color.theme}>
             <Tooltip title={parseButtonTooltip()} arrow placement="right">
               <span>
                 <InfoButton
@@ -109,7 +109,7 @@ function MotifPanel(props) {
                 />
               </span>
             </Tooltip>
-          </ThemeProvider>
+          </ThemeProvider> */}
           {context.showWarning ? (
             <InfoButton color="error" icon={<PriorityHighIcon />} />
           ) : null}
@@ -117,7 +117,7 @@ function MotifPanel(props) {
         <div id="motif-panel-wrapper">
           <SketchPanel {...props} />
           <div className="sketch-panel-options-style">
-            <FormControl sx={{ m: 1, maxWidth: 80 }}>
+            {/* <FormControl sx={{ m: 1, maxWidth: 80 }}>
               <TextField
                 id="outlined-number"
                 label="Number"
@@ -131,7 +131,7 @@ function MotifPanel(props) {
                 defaultValue={1}
                 onChange={(event) => setNumber(_.toNumber(event.target.value))}
               />
-            </FormControl>
+            </FormControl> */}
 
             <FormControl sx={{ m: 1, minWidth: 100 }}>
               <Button
