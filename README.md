@@ -3,8 +3,10 @@
 [![doi](https://img.shields.io/badge/doi-10.1109%2FTVCG.2017.2745978-purple.svg?colorB=C46CFD)](https://doi.org/10.1101/2022.12.09.519772)
 
 
-# Vimo Sketches
+# Vimo Sketches (Seung Lab fork for Codex)
 React component for interactively sketching & searching for network motifs.
+
+**NB:** This repo contains the source for VIMO as it is used in Codex. Contains Codex-specific modifications, as well as our particular build config. Not a general purpose fork.
 
 <p>
   <img src="https://github.com/VCG/vimo-sketches/blob/main/examples/vimo-sketching.gif" />
