@@ -117,39 +117,7 @@ function MotifPanel(props) {
         </div>
         <div id="motif-panel-wrapper">
           <SketchPanel {...props} />
-          <div className="sketch-panel-options-style">
-            {/* <FormControl sx={{ m: 1, maxWidth: 80 }}>
-              <TextField
-                id="outlined-number"
-                label="Number"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                size="small"
-                margin="normal"
-                style={{ marginTop: 0, marginLeft: "8px" }}
-                defaultValue={1}
-                onChange={(event) => setNumber(_.toNumber(event.target.value))}
-              />
-            </FormControl> */}
-
-            <FormControl sx={{ m: 1, maxWidth: 200 }}>
-              <TextField
-                id="outlined-number"
-                label="Minimum Synapse Count"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                size="small"
-                margin="normal"
-                style={{ marginTop: 0, marginLeft: "8px" }}
-                defaultValue={0}
-                onChange={(event) => setMinSynapseCount(_.toNumber(event.target.value))}
-              />
-            </FormControl> 
-
+        <div className="sketch-panel-options-style"> 
             <FormControl sx={{ m: 1, minWidth: 100 }}>
               <Button
                 size="medium"
